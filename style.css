@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+
+:root {
+    --softBlue: hsl(215, 51%, 70%);
+    --cyan: hsl(178, 100%, 50%);
+    --cyanTransparent: hsl(178, 100%, 50%, 0.5);
+    --veryDarkBlueMain: hsl(217, 54%, 11%);
+    --veryDarkBlueCard: hsl(216, 50%, 16%);
+    --veryDarkBlueLine: hsl(215, 32%, 27%);
+    --white: hsl(0, 0%, 100%);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--veryDarkBlueMain);
+    font-family: 'Outfit', sans-serif;
+    /* box-sizing: border-box; */
+    color: var(--softBlue);
+}
+
+a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--cyan);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-flow: column;
+}
+
+.card {
+    max-width: 288px;
+    background-color: var(--veryDarkBlueCard);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: rgb(0 0 0 / 5%) 0px 20px 25px 15px, rgb(0 0 0 / 10%) 0px 40px 30px 15px;
+}
+
+.card-image {
+    cursor: pointer;
+    position: relative;
+}
+
+.card-image>img {
+    width: 100%;
+    display: block;
+    border-radius: 1rem;
+}
+
+.card-image:hover::after {
+    opacity: 1;
+}
+
+.card-image::after {
+    content: url(./images/icon-view.svg);
+    background: var(--cyanTransparent);
+    opacity: 0;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+    border-radius: 1rem;
+}
+
+.card-body {
+    border-bottom: 1px solid var(--veryDarkBlueLine);
+    padding-bottom: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.card-body>a {
+    font-weight: 600;
+}
+
+.card-body>p {
+    line-height: 1.5;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-price,
+.card-timer {
+    display: flex;
+    align-items: center;
+}
+
+.wrapper img {
+    margin-right: 6px;
+}
+
+.card-price {
+    color: var(--cyan);
+    font-weight: 400;
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.card-footer>img {
+    height: 2rem;
+    width: 2rem;
+    margin-right: 1rem;
+    border-radius: 100%;
+    border: 1px solid var(--white);
+}
+
+.card-footer>p {
+    margin: 0;
+}
+
+@media(max-width:375px) {
+    .card {
+        max-width: 75vw;
+    }
+}
+
+
+@media(min-width:1440px) {
+    .card {
+        max-width: 20vw;
+    }
+}
